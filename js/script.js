@@ -1,25 +1,27 @@
 const boutons = document.querySelectorAll("button");
 const para = document.querySelector("#para");
+para.valeur =""
 boutons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const valeur = btn.value;
+    
     if (valeur !== undefined && valeur !== "") {
       if (valeur === "=") {
-        para.value = eval(para.value);
+        para.valeur = eval(para.valeur);
+        para.textContent = para.valeur;
       } else if (valeur === "C") {
-        para.value = "";
+        para.valeur = "";
+        para.textContent = para.valeur;
       } else {
-        para.value += valeur;
+        para.valeur += valeur;
+        para.textContent = para.valeur;
       }
     }
-
-    para.textContent = para.value;
   });
 });
 document.getElementById("egal").addEventListener("click", () => {
-  para.value = eval(para.value);
+  para.valeur = eval(para.valeur);
 });
-
 document.getElementById("clear").addEventListener("click", () => {
-  para.value = "";
+  para.valeur = "";
 });
